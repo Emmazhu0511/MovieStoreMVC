@@ -1,0 +1,12 @@
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Infrastructure.deps.json
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Infrastructure.dll
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Infrastructure.pdb
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Core.dll
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\bin\Debug\netstandard2.1\MovieStore.Core.pdb
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csprojAssemblyReference.cache
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.AssemblyInfo.cs
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.csproj.CopyComplete
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.dll
+C:\Users\Administrator\source\repos\MovieStore\MovieStore.Infrastructure\obj\Debug\netstandard2.1\MovieStore.Infrastructure.pdb
