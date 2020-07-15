@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieStore.Infrastructure.Data;
 
 namespace MovieStore.Infrastructure.Migrations
 {
     [DbContext(typeof(MovieStoreDBContext))]
-    partial class MovieStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200715034550_FavoriteTableRelation")]
+    partial class FavoriteTableRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -174,7 +176,7 @@ namespace MovieStore.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasMaxLength(450);
 
-                    b.HasKey("CastId", "MovieId", "Character");
+                    b.HasKey("CastId", "MovieId");
 
                     b.HasIndex("MovieId");
 
@@ -416,7 +418,7 @@ namespace MovieStore.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("MovieStore.Core.Entities.User", "Customer")
-                        .WithMany("Purchases")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

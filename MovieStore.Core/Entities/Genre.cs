@@ -18,5 +18,7 @@ namespace MovieStore.Core.Entities
         [MaxLength(64)]
         [Required]
         public string Name { get; set; }
+
+        public ICollection<MovieGenre> MovieGenres { get; set; }
     }
 }

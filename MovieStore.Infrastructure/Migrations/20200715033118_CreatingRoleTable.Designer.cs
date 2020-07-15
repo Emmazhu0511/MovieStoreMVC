@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MovieStore.Infrastructure.Data;
 
 namespace MovieStore.Infrastructure.Migrations
 {
     [DbContext(typeof(MovieStoreDBContext))]
-    partial class MovieStoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200715033118_CreatingRoleTable")]
+    partial class CreatingRoleTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,28 +47,6 @@ namespace MovieStore.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cast");
-                });
-
-            modelBuilder.Entity("MovieStore.Core.Entities.Favorite", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("userId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("userId");
-
-                    b.ToTable("Favorite");
                 });
 
             modelBuilder.Entity("MovieStore.Core.Entities.Genre", b =>
@@ -174,7 +154,7 @@ namespace MovieStore.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasMaxLength(450);
 
-                    b.HasKey("CastId", "MovieId", "Character");
+                    b.HasKey("CastId", "MovieId");
 
                     b.HasIndex("MovieId");
 
@@ -347,36 +327,6 @@ namespace MovieStore.Infrastructure.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("MovieStore.Core.Entities.UserRole", b =>
-                {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("UserRole");
-                });
-
-            modelBuilder.Entity("MovieStore.Core.Entities.Favorite", b =>
-                {
-                    b.HasOne("MovieStore.Core.Entities.Movie", "Movie")
-                        .WithMany()
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MovieStore.Core.Entities.User", "User")
-                        .WithMany("Favorites")
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("MovieStore.Core.Entities.MovieCast", b =>
                 {
                     b.HasOne("MovieStore.Core.Entities.Cast", "Cast")
@@ -416,7 +366,7 @@ namespace MovieStore.Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("MovieStore.Core.Entities.User", "Customer")
-                        .WithMany("Purchases")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -442,21 +392,6 @@ namespace MovieStore.Infrastructure.Migrations
                     b.HasOne("MovieStore.Core.Entities.Movie", "Movie")
                         .WithMany("Trailers")
                         .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MovieStore.Core.Entities.UserRole", b =>
-                {
-                    b.HasOne("MovieStore.Core.Entities.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MovieStore.Core.Entities.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
