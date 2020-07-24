@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MovieStore.Core.Entities.Review>
+@{
+    ViewData["Title"] = "Reviews";
+}
+
+<h1>My Reviews</h1>
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-9 bg-light">
+            @foreach (var review in Model)
+            {
+
+            
+            <h6>@review.ReviewText</h6>
+            }
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,222 @@
+﻿@model MovieStore.Core.Models.Response.UserPurchaseResponseModel
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1 d-inline-block bg-dark"></div>
+        <div class="col-sm-4 h-25  d-inline-block bg-dark text-white ">
+            <a>
+                <img src="@Model.movie.PosterUrl" alt="@Model.movie.Title" width="185" height="280" class="rounded mx-auto d-block" />
+            </a>
+        </div>
+        <div class="col-sm-4 d-inline-block bg-dark text-white text-light">
+            <h2 class="font-weight-normal mt-2">@Model.movie.Title</h2>
+            <h3 class="small text-secondary">@Model.movie.Tagline</h3>
+            <h4 class="small text-secondary">@Model.movie.RunTime <span>m | </span><span>@Model.movie.ReleaseDate.Value.Year</span></h4>
+            <h4 class="small text-light bg-dark rounded pl-2 pr-2"></h4>
+            @foreach (var genre in Model.movie.MovieGenres)
+            {
+                <span class="small text-dark bg-info rounded font-weight-bold col-sm-5 text-left pl-1 ml-0">@genre.Genre.Name</span>
+            }
+            <h4 class="small text-dark bg-warning rounded font-weight-bold col-sm-1 text-left pl-1 ml-0">@(Math.Round(Model.movie.Rating.Value,1))</h4>
+            <h6 class="small">@Model.movie.Overview</h6>
+        </div>
+        <div class="col-sm-3 d-inline-block bg-dark text-white btn-group">
+
+            @if (Model.IsMovieFavorited == true)
+            {
+                <form method="post" asp-controller="User" asp-action="DeleteFavorite">
+                    <div class="col-6 mt-2"> <button type="submit" class="btn bg-danger mb-2 mt-2"><i class="far fa-thumbs-up"></i></button> </div>
+                    <input type="hidden" value="@Model.movie.Id" name="MovieId" />
+                </form>
+            }
+            else
+            {
+                <form method="post" asp-controller="User" asp-action="Favorite">
+                    <div class="col-6 mt-2"> <button type="submit" class="btn bg-light mb-2 mt-2"><i class="far fa-thumbs-up"></i></button> </div>
+                    <input type="hidden" value="@Model.movie.Id" name="MovieId" />
+                </form>
+            }
+
+
+
+
+            @if (Model.IsMovieReviewed == true)
+            {
+                //button trigger modal dialog
+                <div class="col-6 ">
+                    <button type="button" class="btn btn-outline-light btn-block mb-1" id="ViewReviewBtn" data-toggle="modal" data-target="#ViewReviewModal">&nbsp;View Review</button>
+                    <div class=" modal fade" id="ViewReviewModal" tabindex="-1" role="dialog" aria-labelledby="ViewReviewModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-dark" id="modalTitile">My Review</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <h5 class="text-dark">Rating:&nbsp;@Model.review.Rating</h5>
+                                            <h5 class="text-dark">Review:&nbsp;@Model.review.ReviewText</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <form method="post" asp-controller="User" asp-action="Review">
+                    <div class="col-6 ">
+                        <button type="button" class="btn btn-outline-light btn-block mb-1" id="WriteReviewBtn" data-toggle="modal" data-target="#WriteReviewModal"><i class="fas fa-edit"></i>&nbsp;Review</button>
+                        <div class=" modal fade" id="WriteReviewModal" tabindex="-1" role="dialog" aria-labelledby="WriteReviewModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark" id="modalTitile">What do you think this Movie?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <label for="Rate" class="text-dark">Rating: </label>
+                                                <select class="form-control" name="Rating" id="Rate">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="9">9</option>
+                                                    <option value="10">10</option>
+                                                </select>
+                                                <label for="textarea" class="text-dark">Content: </label>
+                                                <textarea class="form-control rounded" value="" name="ReviewText" id="textarea" rows="3"> </textarea>
+                                                <input type="hidden" value="@Model.movie.Id" name="MovieId" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="submit" class="btn btn-secondary" value="create">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            }
+
+
+
+            <div class="col-6 "> <button type="button" class="btn btn-outline-light btn-block mb-1"><i class="fas fa-play"></i>&nbsp;Trailer</button></div>
+            @*<partial name="_PurchaseResult" />*@
+
+            @if (Model.IsMoviePurchased == true)
+            {
+                <div class="col-6 ">
+                    <button type="submit" value="create" class="btn btn-outline-light btn-block" id="purchaseBtn"><i class="fas fa-play"></i>&nbsp;Watch</button>
+                </div>
+            }
+            else
+            {
+                <form method="post" asp-controller="User" asp-action="Purchase">
+                    <div class="col-6 ">
+                        <button type="button" class="btn btn-outline-light btn-block mb-1" id="purchaseBtn" data-toggle="modal" data-target="#moviePurchaseModal">BUY $@Model.movie.Price</button>
+                        <div class=" modal fade" id="moviePurchaseModal" tabindex="-1" role="dialog" aria-labelledby="moviePurchaseModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-dark" id="modalTitile">Do you wanna to buy this movie?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <h5 class="text-dark">Your Price is:&nbsp;@Model.movie.Price</h5>
+                                                <a asp-action="Details" asp-controller="Movies" asp-route-id="@Model.movie.Id"><img src="@Model.movie.PosterUrl" class="figure-img ml-5" alt="@Model.movie.Title" /></a>
+                                                <input type="hidden" value="@Model.movie.Id" name="MovieId" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                        <button type="submit" class="btn btn-secondary" value="create">Yes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            }
+
+
+
+
+        </div>
+            </div>
+
+    <div class="row">
+        <div class="col-sm-4 h-50 mt-2 bg-light">
+
+            <h4 class="font-weight-normal">MOVIE FACTS</h4><hr />
+            <h6 class="small"><i class="far fa-calendar-alt"></i>&nbsp;Release Date <span class="text-light bg-dark rounded pl-2 pr-2">@Model.movie.ReleaseDate.Value.ToString("MMM d,yyyy")</span></h6><hr />
+            <h6 class="small"><i class="fas fa-hourglass-half"></i>&nbsp;Run Time <span class="text-light bg-dark rounded pl-2 pr-2">@Model.movie.RunTime m</span> </h6><hr />
+            <h6 class="small"><i class="far fa-money-bill-alt"></i>&nbsp;Box Office <span class="text-light bg-dark rounded pl-2 pr-2">$@Model.movie.Revenue</span></h6><hr />
+            <h6 class="small"><i class="fas fa-dollar-sign"></i>&nbsp;Budge <span class="text-light bg-dark rounded pl-2 pr-2">$@Model.movie.Budget</span></h6><hr />
+            <a><i class="fab fa-medium"></i></a>
+            <a><i class="fas fa-share-square"></i></a>
+
+        </div>
+
+        <div class="col-sm-1 "></div>
+
+        <div class="col-sm-6 h-50 mt-2 bg-light">
+            <h4 class="font-weight-normal">CAST</h4><hr />
+            @foreach (var movie in Model.movie.MovieCasts)
+            {
+                <div class="col-sm-3 d-inline-block text-left">
+                    <a href="@movie.Cast.TmdbUrl" class="text-decoration-none text-dark">
+                        <img src="@movie.Cast.ProfilePath" alt="@movie.Cast.Name" class="rounded-circle" width="30" height="30" />
+                    </a>
+                </div>
+
+                <div class="col-sm-4 d-inline-block text-left">
+                    <span class="pl-3 pr-3">@movie.Cast.Name</span>
+                </div>
+                <div class="col-sm-4 d-inline-block text-left">
+                    <span class="pl-3 pr-3">@movie.Character</span>
+                </div>
+                <hr />
+
+            }
+
+        </div>
+        <div class="col-sm-1 "></div>
+    </div>
+
+    <div class="col">
+
+
+    </div>
+
+</div>
+

@@ -1,0 +1,25 @@
+﻿@*@model MovieStore.Core.Models.Response.UserPurchaseResponseModel
+
+@if (Model.IsMoviePurchased == true)
+{
+
+    <div class="col-6 ">
+        <button type="submit" value="create" class="btn btn-outline-light pl-5 pr-5" id="myBtn">Watch Movie</button>
+        <input type="hidden" value="@Model.MovieId" name="MovieId" />
+    </div>
+}
+else
+{
+
+    <form method="post" asp-controller="User" asp-action="Purchase">
+        <div class="col-6 ">
+            <button type="submit" value="create" class="btn btn-outline-light pl-5 pr-5" id="myBtn">BUY $@Model.TotalPrice</button>
+            <input type="hidden" value="@Model.MovieId" name="MovieId" />
+        </div>
+    </form>
+}*@
+
+
+
+
+

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj": {}
+    "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj",
         "projectName": "MovieStore.Core",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj": {
+    "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
         "projectName": "MovieStore.Infrastructure",
-        "projectPath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,8 +85,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj": {
-                "projectPath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj"
+              "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj": {
+                "projectPath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Core\\MovieStore.Core.csproj"
               }
             }
           }
@@ -100,6 +100,10 @@
       "frameworks": {
         "netstandard2.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.5, )"

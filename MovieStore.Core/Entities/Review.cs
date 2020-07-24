@@ -10,8 +10,6 @@ namespace MovieStore.Core.Entities
 
         public int MovieId { get; set; }
         public int UserId { get; set; }
-
-        [Required]
         public decimal Rating { get; set; }
         public string ReviewText { get; set; }
         public virtual User User { get; set; }

@@ -365,7 +365,7 @@ namespace MovieStore.Infrastructure.Migrations
             modelBuilder.Entity("MovieStore.Core.Entities.Favorite", b =>
                 {
                     b.HasOne("MovieStore.Core.Entities.Movie", "Movie")
-                        .WithMany()
+                        .WithMany("Favorites")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

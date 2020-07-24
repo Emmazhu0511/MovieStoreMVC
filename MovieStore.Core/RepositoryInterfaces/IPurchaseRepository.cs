@@ -1,0 +1,15 @@
+﻿using MovieStore.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MovieStore.Core.RepositoryInterfaces
+{
+    public interface IPurchaseRepository:IAsyncRepository<Purchase>
+    {
+        //Task<Purchase> GetPurchaseById(int userId, int movieId);
+
+        Task<IEnumerable<Movie>> GetPurchases(int id);
+    }
+}

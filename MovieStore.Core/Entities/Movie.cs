@@ -36,5 +36,7 @@ namespace MovieStore.Core.Entities
         public ICollection<MovieCast> MovieCasts { get; set; }
 
         public ICollection<Review> Reviews { get; set; }
+
+        public ICollection<Favorite> Favorites { get; set; }
     }
 }

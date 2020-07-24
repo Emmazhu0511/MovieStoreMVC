@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pH04Zk1Som6nclCF7IlQZB6Rl5mdor3QAXahh5slVaeLiNzXiilmKnpv+XLKAWwJ8MJ2/U46IE6WKJMbbA08vw==",
+  "dgSpecHash": "cvPo4cfi7gUL3lSTuLokoiok6SdDMVQ6kmKzhcOyfSCZpggodGHRPETrfTBwDGSEPDNQt91r2TRdOPWqrYZZVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\source\\repos\\New folder\\MovieStore\\MovieStore.Infrastructure\\MovieStore.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.6\\microsoft.aspnetcore.cryptography.internal.3.1.6.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.6\\microsoft.aspnetcore.cryptography.keyderivation.3.1.6.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
